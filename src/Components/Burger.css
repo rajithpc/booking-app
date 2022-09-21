@@ -1,0 +1,17 @@
+.burger-main{
+    background-color:#e5dcd8;
+    position: absolute;
+    right: 0%;
+    padding: 20px;
+    box-shadow: 0px 5px 5px 0px ;
+    border-radius: 10px;
+}
+.burger-class{
+    font-size: 15px;
+    margin-top: 15px;
+    color: black;
+    font-display:inherit;
+    font-weight: bold;
+    text-decoration: none;
+    
+}

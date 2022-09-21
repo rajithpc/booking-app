@@ -1,0 +1,31 @@
+.check{
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 15px;
+    width: 48%;
+    
+
+}
+.box{
+ 
+    gap: 15px;
+    display: flex;
+    align-items: center;
+
+}
+
+.head{
+    font-weight: 500;
+}
+
+@media only screen and (max-width: 700px) {
+    .check{
+     
+      width: 100%;
+     
+
+    }
+
+
+   
+ }
