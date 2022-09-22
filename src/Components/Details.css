@@ -4,3 +4,9 @@
  justify-content:space-around;
  border: 1px solid gray;
 }
+.btncio{
+    border:2px solid orange;
+    border-radius: 5px;
+    padding: 5px;
+    font-weight: bold;
+}

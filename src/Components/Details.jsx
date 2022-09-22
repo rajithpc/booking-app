@@ -10,7 +10,7 @@ const Details = ({data,btn_text}) => {
             <div><label>{data.date}</label> </div>
           </div>
           <div><label>{data.id}</label></div>
-          <div><Button text={btn_text}/></div>
+          <div><Button text={btn_text} cnbtn='btncio'/></div>
           
             
         

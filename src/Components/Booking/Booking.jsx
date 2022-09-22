@@ -20,7 +20,7 @@ const Booking = ({value}) => {
                 <Input/>
                 <Input/>
                 <div className='bt'>
-                <Button text='search'/>
+                <Button text='search'cnbtn='btnsearch'/>
                 </div>
             </div>
             <div className='head-details'>

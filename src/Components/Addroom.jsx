@@ -25,6 +25,7 @@ const Addroom = ({setAddroom}) => {
         <Input n='number'text="Adult Capacity"setState={setAdultCp}/>
         <Input n='number'text="Children Capacity"setState={setchildCp}/>
         <Input n='number'text="Price"setState={setPrice}/>
+        
         <div className='bt'>
         <Button text='Save' />
         

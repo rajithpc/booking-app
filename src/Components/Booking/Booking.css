@@ -14,6 +14,69 @@
     text-decoration: none;
     color: orange;
 }
+.btns-1{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+}
+.btnsearch{
+    border:none;
+    border-radius: 5px;
+    background-color: orange;
+    padding: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.btn-book{
+    display: flex;
+}
+.btns-book{
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+
+}
+.getbtn{
+    border:none;
+    border-radius: 5px;
+    background-color: orange;
+    padding: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.bookbtn{
+    border: 2px solid orange;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.btnci{
+    border: 2px solid orange;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.btnco{
+    border: 2px solid orange;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.btnc{
+    border: 2px solid orange;
+    border-radius: 5px;
+    padding: 10px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+.lbl-back{
+    color: orange;
+    font-weight: bold;
+}
+
 .bt{
     margin-top: 10px;
 }

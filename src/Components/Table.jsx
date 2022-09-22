@@ -2,7 +2,7 @@ import React from 'react'
 import Tabledetails from './Tabledetails'
 import './Table.css'
 
-const Table = ({data,senddata}) => {
+const Table = ({data,senddata,setAddroom}) => {
   return (
     <div>
     
@@ -17,7 +17,7 @@ const Table = ({data,senddata}) => {
         <div>
            {data.map((data,index)=>{
                 return(
-                   <Tabledetails data={data} key={index}/>
+                   <Tabledetails data={data} key={index} setAddroom={setAddroom}/>
                 )
             })} 
         </div>

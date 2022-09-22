@@ -1,6 +1,7 @@
 .details,.headertable{
     border: 1.5px solid gray;
     padding: 15px;
+    
 }
 .headertable{
     position: sticky;
