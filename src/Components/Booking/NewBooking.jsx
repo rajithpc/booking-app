@@ -30,11 +30,11 @@ const NewBooking = () => {
         <div><Input text='Check Out Date' n='date' setState={setCheckoutDate} /></div>
         <div className='btns'>
           <div className='btns-1'>
-            <div className='btn-get'><Button cnbtn="getbtn" text='Get Available Room'functionality={()=>{setGetAvailableroom(!GetAvailableroom)
+            <div className='btn-get'><Button cnbtn="getbtn" text='Get Available Room' onClick={()=>{setGetAvailableroom(!GetAvailableroom)
            console.log(GetAvailableroom)
            
            }} /></div>
-           {GetAvailableroom && <div className='btn-book'><Button cnbtn='bookbtn' text="Book now" functionality={()=>{setBooknow(!Booknow)}}/>
+           {GetAvailableroom && <div className='btn-book'><Button cnbtn='bookbtn' text="Book now" onClick={()=>{setBooknow(!Booknow)}}/>
            <label  onClick={()=>{navigate(-1)}} className='lbl-back'>Back</label></div>}
            </div>
            {Booknow && <div className='btns-book'><Button text="check in" cnbtn='btnci'/><Button cnbtn='btnco' text="check out"/><Button cnbtn='btnc' text="cancel"/> </div>}

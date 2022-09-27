@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Input = ({text,setState,n}) => {
+const Input = ({value,text,setState,n}) => {
   return (
     <div className='imputcmp'>
         <form>
             <div><label>{text}</label></div>
-            <div className='input'><input type={n} onChange={(c)=>{setState(c.target.value)}} required></input></div>
+            <div className='input'><input type={n} value={value} onChange={(c)=>{setState(c.target.value)}} required></input></div>
         </form>
         
     </div>

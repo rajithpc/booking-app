@@ -17,6 +17,19 @@
     font-weight: bold;
     border-radius: 7px;
 }
+.dlt-pop{
+    position: absolute;
+    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+}
+.btnsave{
+    background-color: orange;
+    border: none;
+    padding: 10px;
+    font-weight: bold;
+    border-radius: 7px;
+}
 .btnaddroom{
     border:none;
     border-radius: 5px;

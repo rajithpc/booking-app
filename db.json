@@ -1,0 +1,25 @@
+{
+  "rooms": [
+    {
+      "roomNumber": "205",
+      "adultCapacity": "4",
+      "childCapacity": "2",
+      "price": "3000",
+      "id": 1
+    },
+    {
+      "roomNumber": "401",
+      "adultCapacity": "3",
+      "childCapacity": "2",
+      "price": "2000",
+      "id": 2
+    },
+    {
+      "roomNumber": "603",
+      "adultCapacity": "4",
+      "childCapacity": "3",
+      "price": "5000",
+      "id": 3
+    }
+  ]
+}

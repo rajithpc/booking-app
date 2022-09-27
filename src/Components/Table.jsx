@@ -2,7 +2,7 @@ import React from 'react'
 import Tabledetails from './Tabledetails'
 import './Table.css'
 
-const Table = ({data,senddata,setAddroom}) => {
+const Table = ({data,setDeleteid,setAddroom,setIsEdit}) => {
   return (
     <div>
     
@@ -17,7 +17,7 @@ const Table = ({data,senddata,setAddroom}) => {
         <div>
            {data.map((data,index)=>{
                 return(
-                   <Tabledetails data={data} key={index} setAddroom={setAddroom}/>
+                   <Tabledetails setDeleteid={setDeleteid} setIsEdit={setIsEdit} data={data} key={index} setAddroom={setAddroom}/>
                 )
             })} 
         </div>
