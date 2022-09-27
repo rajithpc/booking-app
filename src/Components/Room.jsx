@@ -12,10 +12,12 @@ const Room = () => {
   const [isEdit,setIsEdit]=useState(null)
   const [deleteId,setDeleteid]=useState(null)
  
-  const Delete = async()=>{
-    const Delete =await apiCall(`/rooms${deleteId}`,"DELETE")
+  const Delete= async()=>{
+    await apiCall(`/rooms/${deleteId}`,"DELETE")
     setDeleteid(null)
   }
+
+  console.log(deleteId);
 
   useEffect(()=>{
 
@@ -23,7 +25,7 @@ const Room = () => {
     .then(response=>{
       setRoomdata(response);
     })
-  },[Addroomm])
+  },[Addroomm,deleteId])
   
 
   function popupfunction() {
@@ -42,14 +44,15 @@ const Room = () => {
 
     </div>
     <div className={Addroomm || deleteId ? "popupfunction":""}>
-            {Addroomm && <Addroom roomData={roomData} Delete={Delete} deleteId={deleteId} setIsEdit={setIsEdit} isEdit={isEdit}   setAddroom={setAddroom}/>}
+            {Addroomm && <Addroom roomData={roomData} deleteId={deleteId} setIsEdit={setIsEdit} isEdit={isEdit}   setAddroom={setAddroom}/>}
+          
             {deleteId && 
            
            <div className='dlt-pop'>
              <div>
               Are you sure ?. Want to delete.
              </div>
-             <div><Button text="Delete" cnbtn="btn-dlt" onClick={Delete()}/> </div><div> <Button text="Cancel" onClick={setDeleteid(null)} /> </div>
+             <div><Button text="Delete" cnbtn="btn-dlt" onClick={Delete}/> </div><div> <Button text="Cancel" onClick={()=>setDeleteid(null)} /> </div>
            </div>
 
         }

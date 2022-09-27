@@ -1,7 +1,7 @@
 import React from 'react'
 
 import "../Components/Room.css"
-const Aminities = ({data,select,index,SelectArray}) => {
+const Aminities = ({data,setSelectArray,index,SelectArray}) => {
 
 
   return (
@@ -14,8 +14,8 @@ const Aminities = ({data,select,index,SelectArray}) => {
     <svg 
     style={{cursor:'pointer'}}
     onClick={()=>{
-      SelectArray(
-            select.filter((item,itemindex)=>{
+      setSelectArray(
+            SelectArray.filter((item,itemindex)=>{
                 return itemindex !== index;
             })
         )

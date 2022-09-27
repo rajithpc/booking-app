@@ -1,25 +1,28 @@
 {
   "rooms": [
     {
-      "roomNumber": "205",
-      "adultCapacity": "4",
-      "childCapacity": "2",
-      "price": "3000",
+      "roomNumber": "201",
+      "adultCapacity": "2",
+      "childCapacity": "1",
+      "price": "2001",
+      "amenities": [
+        "AC",
+        "TV",
+        "EXtra-Bed"
+      ],
       "id": 1
     },
     {
-      "roomNumber": "401",
-      "adultCapacity": "3",
-      "childCapacity": "2",
-      "price": "2000",
+      "roomNumber": "501",
+      "adultCapacity": "5",
+      "childCapacity": "1",
+      "price": "5001",
+      "amenities": [
+        "EXtra-Bed",
+        "AC",
+        "Coffie-maker"
+      ],
       "id": 2
-    },
-    {
-      "roomNumber": "603",
-      "adultCapacity": "4",
-      "childCapacity": "3",
-      "price": "5000",
-      "id": 3
     }
   ]
 }

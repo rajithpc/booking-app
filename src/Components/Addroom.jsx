@@ -9,7 +9,8 @@ const Addroom = ({roomData,deleteId,Delete,setAddroom,isEdit,setIsEdit}) => {
     roomNumber:"",
     adultCapacity:"",
     childCapacity:"",
-    price:""
+    price:"",
+    amenities:[]
     
   });
   
@@ -21,8 +22,7 @@ const Addroom = ({roomData,deleteId,Delete,setAddroom,isEdit,setIsEdit}) => {
     console.log(isEdit);
     console.log(formData);
   }, [isEdit])
-  
-  const {roomNumber,adultCapacity,childCapacity,price} = formData;
+    const {roomNumber,adultCapacity,childCapacity,price,amenities} = formData;
 
   const onChange=(value,key)=>{
     setFormData({
@@ -60,6 +60,11 @@ console.log(res);
     setAddroom(false);
     setIsEdit(null);
    }
+    const addAminities =(value)=>{
+      if (value && !amenities.includes(value) ) {
+        onChange([...amenities,value],"amenities")
+      }
+    }
 
   return (
     <div className='pop'>
@@ -85,8 +90,8 @@ console.log(res);
       {isEdit &&
       <div>
         <h2>Aminities</h2>
-      <select className='addselect' onChange={(e)=>{setSelectArray([...SelectArray,e.target.value])}}>
-            <option>select</option>
+      <select className='addselect' onChange={(e)=>{addAminities(e.target.value)}}>
+            <option value=''>select</option>
             <option value='AC'>AC</option>
             <option value='EXtra-Bed'>Extra Bed</option>
             <option value='TV'>TV</option>
@@ -98,9 +103,9 @@ console.log(res);
       </div>
 }
       <div>
-        {SelectArray.map((data,index)=>{
+        {amenities.map((data,index)=>{
           return(
-            <Aminities select={SelectArray} data={data} key={index} index={index} SelectArray={setSelectArray} />
+            <Aminities SelectArray={amenities} data={data} key={index} index={index} setSelectArray={(value)=>onChange(value,"amenities")} />
           )
         })}
       </div>

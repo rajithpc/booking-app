@@ -17,7 +17,7 @@ const Table = ({data,setDeleteid,setAddroom,setIsEdit}) => {
         <div>
            {data.map((data,index)=>{
                 return(
-                   <Tabledetails setDeleteid={setDeleteid} setIsEdit={setIsEdit} data={data} key={index} setAddroom={setAddroom}/>
+                   <Tabledetails  setDeleteid={setDeleteid} setIsEdit={setIsEdit} data={data} key={index} setAddroom={setAddroom}/>
                 )
             })} 
         </div>
