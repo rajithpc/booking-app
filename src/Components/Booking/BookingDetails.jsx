@@ -1,15 +1,15 @@
 import React from 'react'
 import "./Booking"
-const BookingDetails = ({value}) => {
+const BookingDetails = ({newBookingdata}) => {
   return (
     <div>
             <div className='booking-details'>
-        <div className='FirstName'><label>{value.FirstName}</label></div>
-        <div className='LastName'><label>{value.LastName}</label></div>
-        <div className='RoomNo'><label>{value.RoomNo}</label></div>
-        <div className='CheckinDate'><label>{value.CheckinDate}</label></div>
-        <div className='CheckoutDate'><label>{value.CheckoutDate}</label></div>
-        <div className='Status'><label>{value.Status}</label></div>
+        <div className='FirstName'><label>{newBookingdata.guestFirstname}</label></div>
+        <div className='LastName'><label>{newBookingdata.guestLastname}</label></div>
+        <div className='RoomNo'><label>{newBookingdata.roomNumber}</label></div>
+        <div className='CheckinDate'><label>{newBookingdata.checkinDate}</label></div>
+        <div className='CheckoutDate'><label>{newBookingdata.checkoutDate}</label></div>
+        <div className='Status'><label>{newBookingdata.status}</label></div>
     </div>
     
     </div>

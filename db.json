@@ -1,28 +1,58 @@
 {
-  "rooms": [
+  "booking": [
     {
-      "roomNumber": "201",
-      "adultCapacity": "2",
-      "childCapacity": "1",
-      "price": "2001",
-      "amenities": [
-        "AC",
-        "TV",
-        "EXtra-Bed"
-      ],
+      "guestFirstname": "sdfghj,",
+      "guestLastname": "sdfghj",
+      "checkinDate": "2022-09-15",
+      "checkoutDate": "2022-09-23",
+      "numberofAdults": "2",
+      "numberofChildrens": "2",
       "id": 1
     },
     {
-      "roomNumber": "501",
-      "adultCapacity": "5",
-      "childCapacity": "1",
-      "price": "5001",
-      "amenities": [
-        "EXtra-Bed",
-        "AC",
-        "Coffie-maker"
-      ],
+      "guestFirstname": "sdfghj,",
+      "guestLastname": "sdfghj",
+      "checkinDate": "2022-09-15",
+      "checkoutDate": "2022-09-23",
+      "numberofAdults": "2",
+      "numberofChildrens": "2",
       "id": 2
+    },
+    {
+      "guestFirstname": "sdfghj,",
+      "guestLastname": "sdfghj",
+      "checkinDate": "2022-09-15",
+      "checkoutDate": "2022-09-23",
+      "numberofAdults": "2",
+      "numberofChildrens": "2",
+      "id": 3
+    },
+    {
+      "guestFirstname": "sdfghj,",
+      "guestLastname": "sdfghj",
+      "checkinDate": "2022-09-15",
+      "checkoutDate": "2022-09-23",
+      "numberofAdults": "2",
+      "numberofChildrens": "2",
+      "id": 4
+    },
+    {
+      "guestFirstname": "",
+      "guestLastname": "",
+      "checkinDate": "",
+      "checkoutDate": "",
+      "numberofAdults": "",
+      "numberofChildrens": "",
+      "id": 5
+    },
+    {
+      "guestFirstname": "",
+      "guestLastname": "",
+      "checkinDate": "",
+      "checkoutDate": "",
+      "numberofAdults": "",
+      "numberofChildrens": "",
+      "id": 6
     }
   ]
 }

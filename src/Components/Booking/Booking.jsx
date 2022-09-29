@@ -4,16 +4,30 @@ import Button from '../Button'
 import Input from '../Input'
 import "./Booking.css"
 import BookingDetails from './BookingDetails'
+import apiCall from '../../Sevices/apiCall'
+
 import {NavLink} from "react-router-dom"
+import { useEffect } from 'react'
+import { useState } from 'react'
+
 
 
 const Booking = ({value}) => {
+  const [newBookingdata, setNewbookingdata] = useState([])
+  // const [bookngId, setBookingid] = useState(null)
+  useEffect(()=>{
+
+    apiCall("/booking")
+    .then(response=>{
+      setNewbookingdata(response);
+    })
+  },[])
   return (
     <div>
          <div className='main-div'>
             <div className='namheade'>
             <div className='lbbooking'><h2>Booking</h2></div>
-            <NavLink to='/NewBookingPage' className='lbnewbooking'>New Booking</NavLink> 
+            <NavLink to='/NewBookingPage' className='lbnewbooking' >New Booking</NavLink>
 
             </div>
             <div className='booking-bar'>
@@ -35,9 +49,9 @@ const Booking = ({value}) => {
 
             </div>
  
-           {value.map((data,index)=>{
+           {newBookingdata.map((data,index)=>{
             return(
-               <BookingDetails value={data} key={index}/>
+               <BookingDetails newBookingdata={data} key={index} />
             )
              })} 
             </div>  

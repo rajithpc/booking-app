@@ -48,12 +48,15 @@ const Room = () => {
           
             {deleteId && 
            
-           <div className='dlt-pop'>
-             <div>
+           <div className='dlt-pp'>
+             <div className='dlt-msg'>
               Are you sure ?. Want to delete.
-             </div>
-             <div><Button text="Delete" cnbtn="btn-dlt" onClick={Delete}/> </div><div> <Button text="Cancel" onClick={()=>setDeleteid(null)} /> </div>
-           </div>
+              </div>
+                <div className='dltbt'>
+                  <div><Button text="Delete" cnbtn="btn-dlt" onClick={Delete}/> </div>
+                  <div><Button text="Cancel" onClick={()=>setDeleteid(null)} /> </div>
+                </div>
+              </div>
 
         }
         </div>
