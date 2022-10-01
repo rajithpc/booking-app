@@ -81,8 +81,8 @@ const updateStatus = (status)=>apiCall("/booking","PUT",{id:booking.id,status})
            <label  onClick={()=>{navigate(-1)}} className='lbl-back'>Back</label></div>}
            </div>
            {Booknow && <div className='btns-book'><Button text="check in" cnbtn='btnci'onClick={()=>{
-            updateStatus("CheckIn");
-           }}/><Button cnbtn='btnco' text="check out"/><Button cnbtn='btnc' text="cancel"/> </div>}
+            updateStatus("Check In");
+           }}/><Button cnbtn='btnco' text="check out"/><Button cnbtn='btnc' text="cancel" onClick={()=>{updateStatus("Check Out");}}/> </div>}
            </div>
     </div>
   )
