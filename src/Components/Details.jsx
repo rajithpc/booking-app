@@ -6,10 +6,17 @@ const Details = ({data,btn_text}) => {
     <div className='d-body'>
         
           <div> 
-            <label>{data.name}</label>
-            <div><label>{data.date}</label> </div>
+            <label>{data.guestFirstName+" "+data.guestLastName} </label>
+              {/* {(data.status === "Check In" || data.status === "Booked") &&
+            <div><label>{data.checkInDate}</label> </div>
+             }
+
+            {(data.status === "Check Out" || data.status === "Booked") &&
+                        <div><label>{data.checkOutDate}</label> </div>
+              } */}
+              
           </div>
-          <div><label>{data.id}</label></div>
+          <div><label>{data.room.roomNumber}</label> </div>
           <div><Button text={btn_text} cnbtn='btncio'/></div>
           
             

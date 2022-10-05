@@ -2,9 +2,29 @@ import React from 'react'
 import NavBar from '../Components/NavBar'
 import Checkin from '../Components/Checkin'
 import '../Pages/Home.css'
-import {checkindata} from "./Checkindata"
-import {checkoutdata} from "./Checkoutdata"
+import { useEffect } from 'react'
+import { useState } from 'react'
+import apiCall from '../Sevices/apiCall'
 function Home (){
+
+const [checkindata, setcheckindata] = useState([])
+const [checkoutdata, setcheckoutdata] = useState([])
+
+useEffect(()=>{
+  apiCall("/booking/today-check-in")
+  .then(response=>{
+    setcheckindata(response);
+  })
+},[])
+
+useEffect(()=>{
+  apiCall("/booking/today-check-out")
+  .then(response=>{
+    setcheckoutdata(response);
+  })
+},[])
+
+
   return (
     <div className='main'>
       <NavBar/>

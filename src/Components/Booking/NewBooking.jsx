@@ -2,11 +2,20 @@ import React from 'react'
 import Button from '../Button'
 import Input from '../Input'
 import { useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useParams } from 'react-router-dom'
 import apiCall from '../../Sevices/apiCall'
+import { useEffect } from 'react'
 // import Booking from './Booking'
+import { updateStatus } from '../../Sevices/api'
 
 const NewBooking = () => {
+  const {id} = useParams();
+  const [status,setStatus]=useState();
+  const [GetAvailableroom,setGetAvailableroom] = useState(false)
+  const [Booknow,setBooknow]=useState(false)
+  // const [showRoom, setShowroom] = useState(false)
+  const [room,setRoom]=useState(null)
+  const [booking,setBooking] = useState(null);
   const [bookingData,setBookingdata] = useState({
     guestFirstName:"",
     guestLastName:"",
@@ -15,8 +24,31 @@ const NewBooking = () => {
     numberOfAdults:"",
     numberOfChild:""
   });
-  const [room,setRoom]=useState(null)
-  const [booking,setBooking] = useState(null);
+
+
+
+  const getBookingData = async ()=>{
+    const data = await apiCall(`/booking/${id}`);
+    if(data){
+      setBookingdata({
+        ...data,
+        checkInDate:data.checkInDate.split("T")[0],
+        checkOutDate:data.checkOutDate.splpit("T")[0]
+      })
+      setRoom(data.room);
+      setStatus(data.status)
+      setBooking(data)
+    }
+    console.log(data)
+    console.log(booking);
+  }
+  useEffect(()=>{
+    if(!id)return;
+    getBookingData();
+  })
+  console.log(status);
+
+  const {guestFirstName,guestLastName,checkInDate,checkOutDate,numberOfAdults,numberOfChild} = bookingData
   const onChange=(value,key)=>{
     if(room)return
     setBookingdata({
@@ -25,13 +57,12 @@ const NewBooking = () => {
     })
   }
   
-const {guestFirstName,guestLastName,checkInDate,checkOutDate,numberOfAdults,numberOfChild} = bookingData
 const getAvailablerooms= async()=>{
   let room = await getRooms();
   if(room.id){
     setRoom(room);
     setGetAvailableroom(true);
-    setShowroom(true)
+    // setShowroom(true)
    
   }
 }
@@ -39,8 +70,8 @@ const getAvailablerooms= async()=>{
 const book= async()=>{
   const booking = await addBooking();
   setBooking(booking)
-  setBooknow(true);
-
+  setBooknow(true)
+  setStatus("Booked")
 }
 
 const formatBooking=()=>{
@@ -50,15 +81,17 @@ const formatBooking=()=>{
     checkOutDate: new Date(bookingData.checkOutDate).toISOString(),
   }
 }
-
+const ChangeStatus =async(status)=>{
+   await updateStatus(booking.id,status);
+   setStatus(status)
+}
+console.log();
   
 const addBooking =()=>apiCall("/booking","POST",{...formatBooking(),roomId:room.id,status:"Booked"})
 const getRooms =()=>apiCall("/get-rooms","POST",formatBooking())
-const updateStatus = (status)=>apiCall("/booking","PUT",{id:booking.id,status})
+
   
-  const [GetAvailableroom,setGetAvailableroom] = useState(false)
-  const [Booknow,setBooknow]=useState(false)
-  const [showRoom, setShowroom] = useState(false)
+
   const navigate=useNavigate()
   
   return (
@@ -70,19 +103,26 @@ const updateStatus = (status)=>apiCall("/booking","PUT",{id:booking.id,status})
         <div><Input value={checkOutDate} text='Check Out Date' n='date' setState={(value)=>onChange(value,"checkOutDate")} /></div>
         <div><Input value={numberOfAdults} text='Number of Adults' n='number' setState={(value)=>onChange(value,"numberOfAdults")} /></div>
         <div><Input value={numberOfChild} text='Number of Childrens' n='number' setState={(value)=>onChange(value,"numberOfChild")} /></div>
-     {showRoom && <div><h3> <label>Room number :</label>{room.roomNumber}</h3>
+     {GetAvailableroom && <div><h3> <label>Room number :</label>{room.roomNumber}</h3>
     <h3> <label>Price :</label>{room.price}</h3>
      </div>} 
      
         <div className='btns'>
           <div className='btns-1'>
             <div className='btn-get'><Button cnbtn="getbtn" text='Get Available Room' onClick={getAvailablerooms} /></div>
-           {GetAvailableroom && <div className='btn-book'><Button cnbtn='bookbtn' text="Book now" onClick={book}/>
+           {room && <div className='btn-book'><Button cnbtn='bookbtn' text="Book now" onClick={book}/>
            <label  onClick={()=>{navigate(-1)}} className='lbl-back'>Back</label></div>}
            </div>
-           {Booknow && <div className='btns-book'><Button text="check in" cnbtn='btnci'onClick={()=>{
-            updateStatus("Check In");
-           }}/><Button cnbtn='btnco' text="check out"/><Button cnbtn='btnc' text="cancel" onClick={()=>{updateStatus("Check Out");}}/> </div>}
+           {Booknow && <div className='btns-book'><Button text="check in" disabled={status !== "Booked"} cnbtn='btnci'onClick={()=>{
+            
+            ChangeStatus("Check In");
+           }}/><Button cnbtn='btnco' disabled={status !== "Check In"} text="check Out"onClick={()=>{
+            
+            ChangeStatus("Check Out");
+            }}/><Button cnbtn='btnc' disabled={status !== "Booked"} text="cancel"onClick={()=>{
+              
+              ChangeStatus("Cancelled");
+              }} /> </div>}
            </div>
     </div>
   )
